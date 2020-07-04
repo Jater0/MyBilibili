@@ -1,0 +1,81 @@
+<view class="main">
+  <!-- public header -->
+  <MyTitle></MyTitle>
+  <!-- video info -->
+  <view class="video_info">
+    <!-- video file -->
+    <!-- cant be used 404 -->
+    <!-- <video src="{{videoInfo.videoSrc}}" controls=""></video> -->
+    <video src="http://jaterwechat.applinzi.com/video/fisher.mp4" controls></video>
+    <!-- video title -->
+    <view class="video_title">
+      <text>{{videoInfo.videoTitle}}</text>
+      <text class="fa fa-angle-down"></text>
+    </view>
+    <!-- video detail -->
+    <view class="video_detail">
+      <!-- author -->
+      <text class="author">{{videoInfo.author}}</text>
+      <!-- play count -->
+      <text class="author">{{videoInfo.playCount}}</text>
+      <!-- comment count -->
+      <text class="author">{{videoInfo.commentCount}}弹幕</text>
+      <!-- date -->
+      <text class="author">{{videoInfo.date}}</text>
+    </view>
+  </view>
+  <!-- video recommendation -->
+  <view class="other_list">
+    <navigator wx:for="{{otherList}}" wx:key="{{index}}" class="item_other">
+      <!-- other video image container -->
+      <view class="other_img_warp">
+        <image src="{{item.imgSrc}}" mode="widthFix"></image>
+      </view>
+      <!-- other video info -->
+      <view class="other_info">
+        <!-- other video title -->
+        <view class="other_title">{{item.title}}</view>
+        <!-- other vidoe detail -->
+        <view class="other_detail">
+          <!-- other video play count -->
+          <text class="play_count">{{item.playMsg}}次观看</text>
+          <!-- other vidoe comment count -->
+          <text class="comment_count">{{item.commentCount}}</text>
+        </view>
+      </view>
+    </navigator>
+  </view>
+  <!-- video comment -->
+  <view class="comment_warp">
+    <!-- comment title -->
+    <view class="comment_title">
+      评论 ({{commentData.commentTotalCount}})
+    </view>
+    <!-- comment list -->
+    <view class="comment_list">
+      <view class="comment_item" wx:for="{{commentData.commentList}}" wx:key="{{index}}">
+        <!-- left -->
+        <view class="comment_user">
+          <!-- user head icon -->
+          <!-- some user head icon 404 -->
+          <!-- <image src="{{item.userIconSrc}}" mode="widthFix"></image> -->
+          <image src="https://i2.hdslb.com/bfs/face/fe81d93c5beb92557474f48551d3b4966eadeeef.jpg@60w_60h.webp" mode="widthFix"></image>
+        </view>
+        <!-- right -->
+        <view class="comment_info">
+          <!-- user comment detail -->
+          <view class="comment_detail">
+            <!-- username -->
+            <text class="author">{{item.username}}</text>
+            <!-- user comment date -->
+            <text class="date">{{item.commentDate}}</text>
+          </view>
+          <!-- comment info -->
+          <view class="comment_content">
+            {{item.commentInfo}}
+          </view>
+        </view>
+      </view>
+    </view>
+  </view>
+</view>
